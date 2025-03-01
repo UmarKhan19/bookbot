@@ -1,10 +1,16 @@
-from stats import get_book_text, get_word_count,get_letter_count
+from stats import get_book_text, get_report
+import sys
 
 def main():
-    book_text = get_book_text("./books/frankenstein.txt")
-    word_count = get_word_count(book_text)
-    print(f"Word count: {word_count}")
-    letter_count = get_letter_count(book_text)
-    print(f"Letter count: {letter_count}")
+    args = sys.argv
+    book_path = None
+    if len(args) <= 1:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+        return
+    book_path = args[1]
+    book_text = get_book_text(book_path)
+    get_report(book_text)
+
 
 main()
