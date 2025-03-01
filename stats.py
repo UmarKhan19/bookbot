@@ -30,3 +30,23 @@ def get_letter_count(book_text : str):
                 letter_count[letter] = 1
 
     return letter_count
+
+def get_report(book_text:str)->str:
+    word_count = get_word_count(book_text)
+    character_count = get_letter_count(book_text)
+    report = f"""============ BOOKBOT ============
+Analyzing book found at books/frankenstein.txt...
+----------- Word Count ----------
+Found {word_count} total words
+--------- Character Count -------
+"""
+
+    character_count
+
+    for letter, count in sorted(character_count.items(),key=lambda x: x[1], reverse=True):
+        report += f"{letter}: {count}\n"
+
+    report += "============= END ==============="
+
+
+    print(report)
